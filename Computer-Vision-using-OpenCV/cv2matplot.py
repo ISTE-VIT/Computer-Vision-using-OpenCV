@@ -6,7 +6,7 @@ img= cv2.imread("home.jpg",-1)
 img1=cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
 cv2.imshow("image",img)
 plt.imshow(img)
-plt.imshow(img1)
+plt.imshow(img1) #to invert the image
 plt.show()
 
 
