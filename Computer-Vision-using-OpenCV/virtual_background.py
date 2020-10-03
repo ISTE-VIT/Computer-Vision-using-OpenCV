@@ -14,6 +14,7 @@ cv2.createTrackbar("UV","image",255,255,callback)
 img=cv2.imread("smarties.png")
 while(cap.isOpened()):
     ret,frame=cap.read()
+    frame1= cv2.flip(frame,1) #Lateral Inversion
     if (ret==True):
         img=cv2.imread("computer_vision.jpg")
         img=cv2.resize(img,(640,480))
@@ -26,14 +27,14 @@ while(cap.isOpened()):
         uv=cv2.getTrackbarPos("UV","image")
         lb=np.array([lh,ls,lv])
         ub=np.array([uh,us,uv])
-        mask=cv2.inRange(frame,lb,ub)
-        res=cv2.bitwise_and(frame,frame,mask=mask)
+        mask=cv2.inRange(frame1,lb,ub)
+        res=cv2.bitwise_and(frame1,frame1,mask=mask)
         point=np.where(res==0)
         frame[point]=img[point]
         cv2.imshow("img",img)
         cv2.imshow("res",res)
         cv2.imshow("mask",mask)
-        cv2.imshow("frame",frame)
+        cv2.imshow("frame",frame1)
         k=cv2.waitKey(1) & 0xFF
         if k==ord("q"):
             break
