@@ -4,3 +4,5 @@ To run the basic program on how OpenCV works, and how it diffeentiate colors, ru
 python col_trackbar.py
 To create a virtual background on your live image, run:
 python virtual_background.py
+To capture an image using a timer, run:
+python camera_timer.py
